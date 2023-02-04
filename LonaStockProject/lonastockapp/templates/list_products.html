@@ -37,8 +37,8 @@
                                 <td>{{ product.last_updated}}</td>
                                 <td>
                                     <a href="{% url 'list_products' %}" class="btn btn-primary">View</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
-                                    <a href="#" class="btn btn-warning">Update</a>
+                                    <a href="{% url 'delete_product' %}" class="btn btn-danger">Delete</a>
+                                    <a href="{% url 'add_product' %}" class="btn btn-warning">Update</a>
                                 </td>
                             </tr>
                             {% endfor %}
