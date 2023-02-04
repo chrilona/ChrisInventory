@@ -83,7 +83,7 @@ def list_products(request):
       writer.writerow(['Product Name','Received Quantity','Receiving Clerk'])
       instance=products
       for product in instance:
-        writer.writerow(['product.product_name','product.received_quantity','product.received_by'])
+        writer.writerow([ product.product_name,product.received_quantity,product.received_by])
         return response
       
     context = {
@@ -91,6 +91,7 @@ def list_products(request):
     "form" : form,
   }
   return render (request, "list_products.html" , context)
+
 
 # Enabling user to directly add new information on new entries to the db
 def add_product(request):

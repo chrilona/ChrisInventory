@@ -7,8 +7,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-           
-                    <h4>List products</h4>
                     <div class="card-body">
                         <form method="POST" action="">{% csrf_token%}
                             {{form}}
@@ -21,20 +19,22 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Product</th>
-                                <th>Quantity</th>
-                                <th>From</th>
-                                <th>Issue Quantity</th>
-                                <th>Action</th>
+                                <th>Received Quantity</th>
+                                <th>Receiving Clerk</th>
+                                <th>Receiving Date</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for product in products %}
                             <tr>
+                                <td>{{ product.id }}</td>
                                 <td>{{ product.product_name }}</td>
                                 <td>{{ product.received_quantity }}</td>
                                 <td>{{ product.received_by }}</td>
-                                <td>{{ product.issue_quantity }}</td>
+                                <td>{{ product.last_updated}}</td>
                                 <td>
                                     <a href="{% url 'list_products' %}" class="btn btn-primary">View</a>
                                     <a href="#" class="btn btn-danger">Delete</a>
