@@ -1,3 +1,4 @@
+from ast import Delete
 from django.shortcuts import render,redirect
 from .models import Product
 from .forms import *
@@ -126,10 +127,10 @@ def update_product(request, pk):
 	return render(request, 'add_product.html', context)
 
 # View to delete product by filtering it through its ID the pk(primary key)
-def delete_product(request, pk):
-	products = Product.objects.get(id=pk)
+def delete_product(request):
+	products = Product.objects
 	if request.method == 'POST':
-		products.delete()
+		Delete(products)
     # messages.success(request,'Product deleted successfully')
 		return redirect('/list_products')
 	return render(request, 'delete_product.html')
